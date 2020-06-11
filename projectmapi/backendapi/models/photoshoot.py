@@ -8,7 +8,7 @@ class Photoshoot(SafeDeleteModel):
     _safedelete_policy = SOFT_DELETE
 
     name = models.CharField(null=False, max_length=50)
-    client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
+    client = models.ForeignKey(Client, null=True, on_delete=models.SET_NULL)
     location = models.CharField(null=True)
     indoor = models.BooleanField(null=True)
     date_scheduled = models.DateTimeField(null=True)
@@ -20,7 +20,7 @@ class Photoshoot(SafeDeleteModel):
         verbose_name_plural = ("Photoshoots")
 
     def __str__(self):
-        return f"Client: {self.name}"
+        return f"Photoshoot: {self.name}"
 
     def get_absolute_url(self):
-        return reverse("Photoshoot_detail", kwargs={"pk": self.pk})
+        return reverse("photoshoot_detail", kwargs={"pk": self.pk})
