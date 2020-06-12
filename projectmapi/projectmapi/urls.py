@@ -24,7 +24,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 router = routers.DefaultRouter(trailing_slash=False)
-router.register(r'equipmenttypes', EquipmentTypes, 'equipmenttype')
+router.register(r'equipmenttypes', EquipmentTypes, 'equipmenttype'),
+router.register(r'batterytypes', BatteryTypes, 'batterytype'),
 
 urlpatterns = [
     path('admin/', admin.site.urls),
