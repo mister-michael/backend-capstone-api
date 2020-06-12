@@ -21,13 +21,47 @@ class EquipmentTypes(ViewSet):
 
         new_equipment_type = EquipmentType()
         new_equipment_type.name = request.data['name']
-
         new_equipment_type.save()
 
         serializer = EquipmentTypeSerializer(
             new_equipment_type, context={'request': request})
 
         return Response(serializer.data)
+
+
+    def retrieve(self, request, pk=None):
+
+        try:
+            equipmenttype = EquipmentType.objects.get(pk=pk)
+            serializer = EquipmentTypeSerializer(
+                equipmenttype, context={'request': request}
+            )
+            return Response(serializer.data)
+
+        except Exception as ex:
+            return HttpResponseServerError(ex)
+
+
+    def update(self, request, pk=None):
+
+        equipmenttype = EquipmentType.objects.get(pk=pk)
+        equipmenttype.name = request.data['name']
+        equipmenttype.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+
+    def destroy(self, request, pk=None):
+
+        try:
+            equipmenttype = EquipmentType.objects.get(pk=pk)
+            equipmenttype.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        except Exception as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
     def list(self, request):
 
@@ -38,3 +72,5 @@ class EquipmentTypes(ViewSet):
         )
 
         return Response(serializer.data)
+
+    
