@@ -1,0 +1,1 @@
+from .equipmenttype import EquipmentTypes

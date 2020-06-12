@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
+# from backendapi.views import register_user, login_user
+from backendapi.views import *
+from django.conf.urls.static import static
+from django.conf import settings
+
+router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'equipmenttypes', EquipmentTypes, 'equipmenttype')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
 ]
