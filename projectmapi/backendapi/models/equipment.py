@@ -9,7 +9,7 @@ from .rentalhouse import RentalHouse
 class Equipment(models.Model):
     
     name = models.CharField(null = False, max_length = 100) 
-    equipment_type = models.ForeignKey(EquipmentType, null=True on_delete=models.SET_NULL)
+    equipment_type = models.ForeignKey(EquipmentType, null=True, on_delete=models.SET_NULL)
     weight = models.FloatField(null=True)
     battery_count = models.IntegerField(null=True)
     battery_type = models.ForeignKey(BatteryType, null=True, on_delete = models.SET_NULL)

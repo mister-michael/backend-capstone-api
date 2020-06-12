@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-from client import Client
+from .client import Client
 from safedelete.models import SafeDeleteModel, SOFT_DELETE
 
 class Photoshoot(SafeDeleteModel):
@@ -9,7 +9,7 @@ class Photoshoot(SafeDeleteModel):
 
     name = models.CharField(null=False, max_length=50)
     client = models.ForeignKey(Client, null=True, on_delete=models.SET_NULL)
-    location = models.CharField(null=True)
+    location = models.CharField(null=True, max_length=200)
     indoor = models.BooleanField(null=True)
     date_scheduled = models.DateTimeField(null=True)
     charge = models.FloatField(null=True)

@@ -6,7 +6,7 @@ from .employee import Employee
 
 class ClientNote(models.Model):
     
-    comment = models.CharField(null = False) 
+    comment = models.CharField(null = False, max_length=1000) 
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     

@@ -9,7 +9,7 @@ class Client(SafeDeleteModel):
     first_name = models.CharField(null = False, max_length = 25) 
     last_name = models.CharField(null = False, max_length = 25)
     phone = models.CharField(null = False, max_length = 20)
-    email = models.CharField(null = False)
+    email = models.CharField(null = False, max_length=50)
     address = models.CharField(null = True, max_length = 50)
     city = models.CharField(null = True, max_length = 50)
     state = models.CharField(null = True, max_length = 2)
