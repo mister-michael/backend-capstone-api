@@ -2,7 +2,7 @@ from .batterytype import BatteryType
 from .client import Client
 from .clientnote import ClientNote
 from .employee import Employee
-from .equipment import Equipment
+from .equipment import Equipment as EquipmentModel
 from .equipmenttype import EquipmentType
 from .photoshoot import Photoshoot
 from .photoshootequipment import PhotoshootEquipment

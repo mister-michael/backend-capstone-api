@@ -72,5 +72,3 @@ class BatteryTypes(ViewSet):
         )
 
         return Response(serializer.data)
-
-    
