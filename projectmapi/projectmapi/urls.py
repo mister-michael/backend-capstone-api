@@ -27,9 +27,11 @@ router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'equipmenttypes', EquipmentTypes, 'equipmenttype')
 router.register(r'batterytypes', BatteryTypes, 'batterytype')
 router.register(r'clients', Clients, 'client')
-router.register(r'equipments', Equipment, 'equipment')
+router.register(r'equipments', Equipments, 'equipment')
+router.register(r'employees', Employees, 'employee')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('register', register_user)
 ]

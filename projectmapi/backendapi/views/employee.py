@@ -4,11 +4,12 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from ..models import Employee
+from .user import Users
 
 class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
-        model = EmployeetModel
+        model = Employee
         url = serializers.HyperlinkedIdentityField(
             view_name='employee',
             lookup_field='id'
@@ -16,8 +17,23 @@ class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'city', 'phone', 'user')
         depth = 1
 
-class Employee(ViewSet):
+class Employees(ViewSet):
 
-    def create(self, request):
+    def list(self, request):
 
-        new_employee =
+        employee = Employee.objects.all()
+
+        serializer = EmployeeSerializer(
+            employee, many=True, context={'request': request}
+        )
+
+        return Response(serializer.data)
+
+#     def create(self, request):
+
+#         new_employee = Employee()
+
+#         new_employee.city = request.data['city']
+#         new_employee.phone = request.data['phone']
+
+#         new

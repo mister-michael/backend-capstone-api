@@ -6,7 +6,7 @@ class Employee(models.Model):
     
     city = models.CharField(null = False, max_length = 50) 
     phone = models.CharField(null = False, max_length = 20)
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.ForeignKey(User, related_name="employees", on_delete = models.CASCADE)
     
     class Meta:
         verbose_name = ("Employee")

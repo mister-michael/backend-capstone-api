@@ -17,7 +17,7 @@ class EquipmentSerializer(serializers.HyperlinkedModelSerializer):
                     'battery_type_id', 'wireless', 'return_date',
                     'equipment_type_id', 'rental_house_id')
 
-class Equipment(ViewSet):
+class Equipments(ViewSet):
     def create(self, request):
 
         new_equipment = EquipmentModel()
