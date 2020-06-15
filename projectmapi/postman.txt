@@ -33,5 +33,14 @@ Register
 	"phone": "555-555-5555"
 }
 
+Employees update
+{
+	"email": "mike@nss.com",
+	"first_name": "mike",
+	"last_name": "clark",
+	"city": "Dallas",
+	"phone": "555-555-5555"
+}
+
 
 

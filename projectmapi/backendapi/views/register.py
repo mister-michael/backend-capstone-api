@@ -34,7 +34,6 @@ def register_user(request):
 
     req_body = json.loads(request.body.decode())
 
-  
     new_user = User.objects.create_user(
         username=req_body['username'],
         password=req_body['password'],
@@ -52,8 +51,9 @@ def register_user(request):
 
     customer.save()
 
- 
+
     token = Token.objects.create(user=new_user)
 
     data = json.dumps({"token": token.key})
+    # data = json.dumps({"token": ""})
     return HttpResponse(data, content_type='application/json')

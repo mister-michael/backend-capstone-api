@@ -5,6 +5,7 @@ from rest_framework import serializers
 from rest_framework import status
 from ..models import Employee
 from .user import Users
+from django.contrib.auth.models import User
 
 class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
     
@@ -28,6 +29,25 @@ class Employees(ViewSet):
         )
 
         return Response(serializer.data)
+
+    def update(self, request, pk=None):
+
+        employee = Employee.objects.get(user_id=request.auth.user.id)
+
+        employee.city = request.data['city']
+        employee.phone = request.data['phone']
+
+        user_to_update = User.objects.get(pk=request.auth.user.id)
+
+        user_to_update.email = request.data['email']
+        user_to_update.first_name = request.data['first_name']
+        user_to_update.last_name = request.data['last_name']
+
+        employee.save()
+        user_to_update.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
 
 #     def create(self, request):
 
