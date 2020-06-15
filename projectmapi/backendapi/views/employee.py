@@ -14,8 +14,8 @@ class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
             view_name='employee',
             lookup_field='id'
         )
-        fields = ('id', 'city', 'phone', 'user')
-        depth = 1
+        fields = ('id', 'city', 'phone', 'user_id', 'user')
+        depth = 2
 
 class Employees(ViewSet):
 
@@ -24,7 +24,7 @@ class Employees(ViewSet):
         employee = Employee.objects.all()
 
         serializer = EmployeeSerializer(
-            employee, many=True, context={'request': request}
+        employee, many=True, context={'request': request}
         )
 
         return Response(serializer.data)

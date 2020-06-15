@@ -12,6 +12,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             view_name='user',
             lookup_field='id'
         )
+        fields = ('id', 'first_name')
         
 class Users(ViewSet):
     def retrieve(self, request, pk=None):
@@ -21,4 +22,4 @@ class Users(ViewSet):
             return Response(serializer.data)
         
         except Exception as ex:
-           return HttpResponseServerError(ex)
+            return HttpResponseServerError(ex)

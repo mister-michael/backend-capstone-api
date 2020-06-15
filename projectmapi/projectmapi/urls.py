@@ -29,6 +29,7 @@ router.register(r'batterytypes', BatteryTypes, 'batterytype')
 router.register(r'clients', Clients, 'client')
 router.register(r'equipments', Equipments, 'equipment')
 router.register(r'employees', Employees, 'employee')
+router.register(r'users', Users, 'user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
