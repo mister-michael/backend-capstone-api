@@ -1,0 +1,37 @@
+Equipment 
+{
+	"name": "Cannon 5d",
+	"weight": 5,
+	"battery_count": 4,
+	"battery_type_id": 1,
+	"wireless": true,
+	"return_date": null,
+	"equipment_type_id": 1,
+	"rental_house_id": null
+}
+
+Client
+{
+	"first_name": "Tom",
+	"last_name": "Daley",
+	"phone": "555-555-5555",
+	"email": "tom@nss.com",
+	"address": "123 Tom Street",
+	"city": "Nashville",
+	"state": "TN",
+	"zip_code": "37149"
+}
+
+Register 
+{
+	"username": "chip",
+	"password": "passw0rd",
+	"email": "chip@nss.com",
+	"first_name": "lysle",
+	"last_name": "chipperson",
+	"city": "Nashville",
+	"phone": "555-555-5555"
+}
+
+
+
