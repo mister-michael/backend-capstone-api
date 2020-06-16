@@ -58,7 +58,7 @@ class PhotoshootNotes(ViewSet):
 
         try:
             psn = PhotoshootNote.objects.get(pk=pk)
-            product.delete()
+            psn.delete()
 
             return Response({}, status=status.HTTP_204_NO_CONTENT)
 
