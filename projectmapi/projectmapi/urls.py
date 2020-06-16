@@ -31,6 +31,7 @@ router.register(r'employees', Employees, 'employee')
 router.register(r'users', Users, 'user')
 router.register(r'photoshoots', Photoshoots, 'photoshoot')
 router.register(r'photoshootequipments', PhotoshootEquipments, 'photoshootequipment')
+router.register(r'photoshootnotes', PhotoshootNotes, 'photoshootnote')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
