@@ -38,3 +38,15 @@ class Photoshoots(ViewSet):
         )
 
         return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        try:
+            photoshoot = Photoshoot.objects.get(pk=pk)
+            serializer = PhotoshootSerializer(
+                photoshoot, context={'request': request}
+            )
+            return Response(serializer.data)
+        except Exception as ex:
+            return HttpResponseServerError(ex)
+
+    # def update(self, request, pk=None):
