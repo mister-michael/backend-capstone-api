@@ -29,6 +29,7 @@ router.register(r'clients', Clients, 'client')
 router.register(r'equipments', Equipments, 'equipment')
 router.register(r'employees', Employees, 'employee')
 router.register(r'users', Users, 'user')
+router.register(r'photoshoots', Photoshoots, 'photoshoot')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
