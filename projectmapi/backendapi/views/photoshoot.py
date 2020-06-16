@@ -49,4 +49,41 @@ class Photoshoots(ViewSet):
         except Exception as ex:
             return HttpResponseServerError(ex)
 
-    # def update(self, request, pk=None):
+    def update(self, request, pk=None):
+
+        photoshoot = Photoshoot.objects.get(pk=pk)
+
+        photoshoot.name = request.data['name']
+        photoshoot.location = request.data['location']
+        photoshoot.indoor = request.data['indoor']
+        photoshoot.date_scheduled = request.data['date_scheduled']
+        photoshoot.charge = request.data['charge']
+        photoshoot.paid = request.data['paid']
+        photoshoot.client_id = request.data['client_id']
+
+        photoshoot.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, pk=None):
+
+        try:
+            photoshoot = Photoshoot.objects.get(pk=pk)
+            photoshoot.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        except Photoshoot.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def list(self, request):
+
+        photoshoots = Photoshoot.objects.all()
+
+        serializer = PhotoshootSerializer(
+            photoshoots, many=True, context={'request': request}
+        )
+        return Response(serializer.data)

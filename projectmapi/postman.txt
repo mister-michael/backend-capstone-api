@@ -42,5 +42,16 @@ Employees update
 	"phone": "555-555-5555"
 }
 
+Photoshoot
+{
+	"name": "the Cerno shoot",
+	"location": "1234 5th St.",
+	"indoor": true,
+	"date_scheduled": "2020-10-20",
+	"charge": "1200",
+	"paid": false,
+	"client_id": 1
+}
+
 
 
