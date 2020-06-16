@@ -18,7 +18,6 @@ from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
-# from backendapi.views import register_user, login_user
 from backendapi.views import *
 from django.conf.urls.static import static
 from django.conf import settings
@@ -34,5 +33,10 @@ router.register(r'users', Users, 'user')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('register', register_user)
+    path('register', register_user),
+    path('login', login_user),
+    path('api-token-auth', obtain_auth_token),
+    path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
