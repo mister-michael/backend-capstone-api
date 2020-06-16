@@ -6,3 +6,4 @@ from. employee import Employees
 from .register import register_user, login_user
 from .user import Users
 from .photoshoot import Photoshoots
+from .photoshootequipment import PhotoshootEquipments
