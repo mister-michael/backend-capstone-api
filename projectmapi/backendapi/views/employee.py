@@ -48,6 +48,18 @@ class Employees(ViewSet):
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
+    def retrieve(self, request, pk=None):
+        try:
+            employee = Employee.objects.get(pk=pk)
+            serializer = EmployeeSerializer(
+                employee, context={'request': request}
+                )
+            return Response(serializer.data)
+
+        except Exception as ex:
+            
+            return HttpResponseServerError(ex)
+
 
 #     def create(self, request):
 

@@ -53,7 +53,7 @@ class Equipments(ViewSet):
 
     def update(self, request, pk=None):
 
-        equipment = EquipmentModel()
+        equipment = EquipmentModel.objects.get(pk=pk)
 
         equipment.name = request.data['name']
         equipment.weight = request.data['weight']

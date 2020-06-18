@@ -45,7 +45,7 @@ class PhotoshootEquipments(ViewSet):
 
     def update(self, request, pk=None):
         
-        pse = PhotoshootEquipment()
+        pse = PhotoshootEquipment.objects.get(pk=pk)
 
         pse.equipment_id = request.data['equipment_id']
         pse.photoshoot_id = request.data['photoshoot_id']
