@@ -69,8 +69,17 @@ class PhotoshootStaffs(ViewSet):
 
     def list(self, request):
         try:
+
+            photoshootstaff = ""
+
             ps_id = self.request.query_params.get('photoshoot_id')
-            photoshootstaff = PhotoshootStaff.objects.filter(photoshoot_id=ps_id)
+            emp_id = self.request.query_params.get('employee_id')
+
+            if ps_id is not None:
+                photoshootstaff = PhotoshootStaff.objects.filter(photoshoot_id=ps_id)
+
+            if emp_id is not None:
+                photoshootstaff = PhotoshootStaff.objects.filter(employee_id=emp_id)
 
             serializer = PhotoshootStaffSerializer(
                 photoshootstaff, many=True, context={'request': request}

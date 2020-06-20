@@ -5,8 +5,9 @@ from rest_framework import serializers
 from rest_framework import status
 from ..models import EquipmentModel
 
+
 class EquipmentSerializer(serializers.HyperlinkedModelSerializer):
-    
+
     class Meta:
         model = EquipmentModel
         url = serializers.HyperlinkedIdentityField(
@@ -14,8 +15,10 @@ class EquipmentSerializer(serializers.HyperlinkedModelSerializer):
             lookup_field='id'
         )
         fields = ('id', 'name', 'weight', 'battery_count',
-                    'battery_type_id', 'wireless', 'return_date',
-                    'equipment_type_id', 'rental_house_id')
+                  'battery_type_id', 'wireless', 'return_date',
+                  'equipment_type_id', 'rental_house_id', 'equipment_type', 'rental_house',)
+        depth = 1
+
 
 class Equipments(ViewSet):
     def create(self, request):
@@ -44,11 +47,11 @@ class Equipments(ViewSet):
             equipment = EquipmentModel.objects.get(pk=pk)
             serializer = EquipmentSerializer(
                 equipment, context={'request': request}
-                )
+            )
             return Response(serializer.data)
 
         except Exception as ex:
-            
+
             return HttpResponseServerError(ex)
 
     def update(self, request, pk=None):
@@ -72,7 +75,7 @@ class Equipments(ViewSet):
         try:
             equipment = EquipmentModel.objects.get(pk=pk)
             equipment.delete()
-        
+
         except Equipment.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 

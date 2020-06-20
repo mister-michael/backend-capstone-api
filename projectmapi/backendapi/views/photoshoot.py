@@ -83,6 +83,11 @@ class Photoshoots(ViewSet):
 
         photoshoots = Photoshoot.objects.all()
 
+        employee_photoshoots = self.request.query_params.get('employee_id')
+
+        if employee_photoshoots is not None:
+            photoshoots = ""
+
         serializer = PhotoshootSerializer(
             photoshoots, many=True, context={'request': request}
         )

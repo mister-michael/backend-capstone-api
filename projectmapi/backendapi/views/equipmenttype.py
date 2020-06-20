@@ -13,7 +13,7 @@ class EquipmentTypeSerializer(serializers.HyperlinkedModelSerializer):
             view_name='equipmenttype',
             lookup_field='id'
         )
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'equipment')
 
 class EquipmentTypes(ViewSet):
 
