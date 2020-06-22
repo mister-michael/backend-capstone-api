@@ -27,8 +27,8 @@ class Equipments(ViewSet):
 
         new_equipment.name = request.data['name']
         new_equipment.weight = request.data['weight']
-        new_equipment.battery_count = request.data['battery_count']
-        new_equipment.battery_type_id = request.data['battery_type_id']
+        # new_equipment.battery_count = request.data['battery_count']
+        # new_equipment.battery_type_id = request.data['battery_type_id']
         new_equipment.wireless = request.data['wireless']
         new_equipment.return_date = request.data['return_date']
         new_equipment.equipment_type_id = request.data['equipment_type_id']
