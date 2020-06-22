@@ -86,6 +86,11 @@ class Equipments(ViewSet):
 
         equipment = EquipmentModel.objects.all()
 
+        eqtype_id = self.request.query_params.get('equipment_type_id')
+
+        if eqtype_id is not None:
+            equipment = EquipmentModel.objects.filter(equipment_type_id=eqtype_id)
+
         serializer = EquipmentSerializer(
             equipment, many=True, context={'request': request}
         )

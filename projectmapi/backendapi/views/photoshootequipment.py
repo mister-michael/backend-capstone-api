@@ -75,11 +75,16 @@ class PhotoshootEquipments(ViewSet):
 
         eq_id = self.request.query_params.get('equipment_id')
 
+        # inpack_psid = self.request.query_params.get('inpack')
+
         if ps_id is not None:
             pse = PhotoshootEquipment.objects.filter(photoshoot_id=ps_id)
 
         if eq_id is not None:
             pse = PhotoshootEquipment.objects.filter(equipment_id=eq_id)
+
+        # if inpack_psid is not None:
+        #     pse = PhotoshootEquipment.objects.exclude(photoshoot_id=inpack_psid).values_list('equipment_id', flat=True).distinct().all()
 
         serializer = PhotoshootEquipmentSerializer(
             pse, many=True, context={'request': request}
