@@ -32,12 +32,12 @@ class Employees(ViewSet):
 
     def update(self, request, pk=None):
 
-        employee = Employee.objects.get(user_id=request.auth.user.id)
+        employee = Employee.objects.get(pk=pk)
 
         employee.city = request.data['city']
         employee.phone = request.data['phone']
 
-        user_to_update = User.objects.get(pk=request.auth.user.id)
+        user_to_update = User.objects.get(pk=employee.user_id)
 
         user_to_update.email = request.data['email']
         user_to_update.first_name = request.data['first_name']
@@ -60,12 +60,16 @@ class Employees(ViewSet):
             
             return HttpResponseServerError(ex)
 
+class IsActive(ViewSet):
 
-#     def create(self, request):
+    def update(self, request, pk=None):
 
-#         new_employee = Employee()
+        employee = Employee.objects.get(pk=pk)
 
-#         new_employee.city = request.data['city']
-#         new_employee.phone = request.data['phone']
+        user_to_update = User.objects.get(pk=employee.user_id)
 
-#         new
+        user_to_update.is_active = request.data['is_active']
+
+        user_to_update.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)

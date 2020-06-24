@@ -11,3 +11,4 @@ from .photoshootnote import PhotoshootNotes
 from .clientnote import ClientNotes
 from .photoshootstaff import PhotoshootStaffs
 from .rentalhouse import RentalHouses
+from .employee import IsActive
