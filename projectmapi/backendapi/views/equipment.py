@@ -3,7 +3,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from ..models import EquipmentModel
+from ..models import EquipmentModel, PhotoshootEquipment
 
 
 class EquipmentSerializer(serializers.HyperlinkedModelSerializer):
@@ -76,7 +76,7 @@ class Equipments(ViewSet):
             equipment = EquipmentModel.objects.get(pk=pk)
             equipment.delete()
 
-        except Equipment.DoesNotExist as ex:
+        except EquipmentModel.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as ex:
@@ -88,8 +88,24 @@ class Equipments(ViewSet):
 
         eqtype_id = self.request.query_params.get('equipment_type_id')
 
+        ps_id = self.request.query_params.get("photoshoot_id")
+
+        # filter photoshootequipments with ps_id 
+        # create set of those equipment_ids
+        # exclude equipment with those equipment_ids
+        # fetch on front end should query eqtypeid and photoshootid
+
         if eqtype_id is not None:
+
+            # photoshootequipments = PhotoshootEquipment.objects.filter(photoshoot_id=ps_id)
+
             equipment = EquipmentModel.objects.filter(equipment_type_id=eqtype_id)
+            
+            # for pse in photoshootequipments:
+            #     for eq in equipment:
+            #         if eq.id == pse.id:
+            #             equipment.index(eq)
+            #             equipment.pop(eq)
 
         serializer = EquipmentSerializer(
             equipment, many=True, context={'request': request}
