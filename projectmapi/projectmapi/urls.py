@@ -18,7 +18,6 @@ from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
-# from backendapi.views import register_user, login_user
 from backendapi.views import *
 from django.conf.urls.static import static
 from django.conf import settings
@@ -30,9 +29,21 @@ router.register(r'clients', Clients, 'client')
 router.register(r'equipments', Equipments, 'equipment')
 router.register(r'employees', Employees, 'employee')
 router.register(r'users', Users, 'user')
+router.register(r'photoshoots', Photoshoots, 'photoshoot')
+router.register(r'photoshootequipments', PhotoshootEquipments, 'photoshootequipment')
+router.register(r'photoshootnotes', PhotoshootNotes, 'photoshootnote')
+router.register(r'clientnotes', ClientNotes, 'clientnote')
+router.register(r'photoshootstaffs', PhotoshootStaffs, 'photoshootstaff')
+router.register(r'rentalhouses', RentalHouses, 'rentalhouse')
+router.register(r'isactives', IsActive, 'isactive')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('register', register_user)
+    path('register', register_user),
+    path('login', login_user),
+    path('api-token-auth', obtain_auth_token),
+    path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

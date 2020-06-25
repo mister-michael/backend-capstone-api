@@ -5,3 +5,10 @@ from .equipment import Equipments
 from. employee import Employees
 from .register import register_user, login_user
 from .user import Users
+from .photoshoot import Photoshoots
+from .photoshootequipment import PhotoshootEquipments
+from .photoshootnote import PhotoshootNotes
+from .clientnote import ClientNotes
+from .photoshootstaff import PhotoshootStaffs
+from .rentalhouse import RentalHouses
+from .employee import IsActive

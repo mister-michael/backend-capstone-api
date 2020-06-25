@@ -5,8 +5,9 @@ from rest_framework import serializers
 from rest_framework import status
 from ..models import EquipmentModel
 
+
 class EquipmentSerializer(serializers.HyperlinkedModelSerializer):
-    
+
     class Meta:
         model = EquipmentModel
         url = serializers.HyperlinkedIdentityField(
@@ -14,8 +15,10 @@ class EquipmentSerializer(serializers.HyperlinkedModelSerializer):
             lookup_field='id'
         )
         fields = ('id', 'name', 'weight', 'battery_count',
-                    'battery_type_id', 'wireless', 'return_date',
-                    'equipment_type_id', 'rental_house_id')
+                  'battery_type_id', 'wireless', 'return_date',
+                  'equipment_type_id', 'rental_house_id', 'equipment_type', 'rental_house',)
+        depth = 1
+
 
 class Equipments(ViewSet):
     def create(self, request):
@@ -24,8 +27,8 @@ class Equipments(ViewSet):
 
         new_equipment.name = request.data['name']
         new_equipment.weight = request.data['weight']
-        new_equipment.battery_count = request.data['battery_count']
-        new_equipment.battery_type_id = request.data['battery_type_id']
+        # new_equipment.battery_count = request.data['battery_count']
+        # new_equipment.battery_type_id = request.data['battery_type_id']
         new_equipment.wireless = request.data['wireless']
         new_equipment.return_date = request.data['return_date']
         new_equipment.equipment_type_id = request.data['equipment_type_id']
@@ -44,16 +47,16 @@ class Equipments(ViewSet):
             equipment = EquipmentModel.objects.get(pk=pk)
             serializer = EquipmentSerializer(
                 equipment, context={'request': request}
-                )
+            )
             return Response(serializer.data)
 
         except Exception as ex:
-            
+
             return HttpResponseServerError(ex)
 
     def update(self, request, pk=None):
 
-        equipment = EquipmentModel()
+        equipment = EquipmentModel.objects.get(pk=pk)
 
         equipment.name = request.data['name']
         equipment.weight = request.data['weight']
@@ -72,7 +75,7 @@ class Equipments(ViewSet):
         try:
             equipment = EquipmentModel.objects.get(pk=pk)
             equipment.delete()
-        
+
         except Equipment.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
@@ -82,6 +85,11 @@ class Equipments(ViewSet):
     def list(self, request):
 
         equipment = EquipmentModel.objects.all()
+
+        eqtype_id = self.request.query_params.get('equipment_type_id')
+
+        if eqtype_id is not None:
+            equipment = EquipmentModel.objects.filter(equipment_type_id=eqtype_id)
 
         serializer = EquipmentSerializer(
             equipment, many=True, context={'request': request}
