@@ -1,0 +1,37 @@
+[
+    {
+        "pk": 1,
+        "model": "backendapi.equipmenttype",
+        "fields": {
+            "name": "Camera"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "backendapi.equipmenttype",
+        "fields": {
+            "name": "Lighting"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "backendapi.equipmenttype",
+        "fields": {
+            "name": "Lense"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "backendapi.equipmenttype",
+        "fields": {
+            "name": "Transport"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "backendapi.equipmenttype",
+        "fields": {
+            "name": "Misc"
+        }
+    }
+]

@@ -1,0 +1,128 @@
+[
+    {
+        "pk": 1,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "Cannon 5D",
+            "equipment_type_id": 1,
+            "weight": 5,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    },
+    {
+        "pk": 2,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "Cannon Rebel",
+            "equipment_type_id": 1,
+            "weight": 2,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    },
+    {
+        "pk": 3,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "Cannon 50mm Prime",
+            "equipment_type_id": 3,
+            "weight": 3,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    },
+    {
+        "pk": 4,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "Cannon 75-200mm",
+            "equipment_type_id": 3,
+            "weight": 3,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    },
+    {
+        "pk": 5,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "Tascam Roller Bag",
+            "equipment_type_id": 4,
+            "weight": 3,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    },
+    {
+        "pk": 6,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "Softbox",
+            "equipment_type_id": 2,
+            "weight": 4,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    },
+    {
+        "pk": 7,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "12ft White Seamless Bckg.",
+            "equipment_type_id": 5,
+            "weight": 4,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    },
+    {
+        "pk": 8,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "16x8x8 Apple Box 01.",
+            "equipment_type_id": 5,
+            "weight": 4,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    },
+    {
+        "pk": 8,
+        "model": "backendapi.equipment",
+        "fields": {
+            "name": "16x8x8 Apple Box 02.",
+            "equipment_type_id": 5,
+            "weight": 4,
+            "battery_count": null,
+            "battery_type_id": null,
+            "wireless": true,
+            "rental_house_id": null,
+            "return_date": null
+        }
+    }
+]
