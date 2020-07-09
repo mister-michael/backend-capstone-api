@@ -1,0 +1,30 @@
+[
+    {
+        "pk": 1,
+        "model": "backendapi.client",
+        "fields": {
+            "first_name": "Stavros",
+            "last_name": "Halkias",
+            "phone": "555-444-3333",
+            "email": "stavros@nss.com",
+            "address": "567 89th St",
+            "city": "New York",
+            "state": "NY",
+            "zip_code": "10001"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "backendapi.client",
+        "fields": {
+            "first_name": "Adam",
+            "last_name": "Friedland",
+            "phone": "666-888-3333",
+            "email": "adam@nss.com",
+            "address": "567 12th St",
+            "city": "New York",
+            "state": "NY",
+            "zip_code": "10001"
+        }
+    }
+]
