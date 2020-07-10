@@ -53,3 +53,4 @@ Enter the following command into your terminal to clone the project to your comp
 ```sh
     python manage.py runserver
 ```
+
