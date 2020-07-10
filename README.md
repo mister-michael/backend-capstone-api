@@ -1,6 +1,6 @@
 ## Back End Install
 
-_you can find install instructions for the full-stack application, as well as an overview of the project, in the_ ![front-end repo](https://github.com/mister-michael/backend-capstone-api).
+_you can find install instructions for the full-stack application, as well as an overview of the project, in the_ [front-end repo](https://github.com/mister-michael/backend-capstone-api).
 
 ### Clone the Api
 
